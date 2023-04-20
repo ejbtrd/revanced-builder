@@ -55,12 +55,16 @@ echo "$YOUTUBE_VERSION" > yt-version
 YOUTUBE_APK="com.google.android.youtube@$YOUTUBE_VERSION"
 ./apkkeep -a "$YOUTUBE_APK" .
 
-EXCLUDED_PATCHES=$(cat excluded-patches)
+declare -a EXCLUDED_PATCHES
+
+for p in $(cat excluded-patches); do
+    EXCLUDED_PATCHES+=("-e $p")
+done
 
 # Finally patch the apk
 java -jar "$REVANCED_CLI" \
+  ${EXCLUDED_PATCHES[@]} \
   -a "$YOUTUBE_APK".apk \
-  -e ${EXCLUDED_PATCHES[@]} \
   -b "$REVANCED_PATCHES" \
   -m "$REVANCED_INTEGRATIONS" \
   -o revanced_youtube_"$YOUTUBE_VERSION".apk
