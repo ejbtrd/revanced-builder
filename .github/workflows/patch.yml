@@ -3,6 +3,9 @@ name: Patch
 on:
   schedule:
   - cron: "0 20 * * *"
+  push:
+    branches:
+      - 'main'
 
 jobs:
   patch:
