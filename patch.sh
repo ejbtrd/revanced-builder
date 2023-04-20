@@ -1,8 +1,7 @@
 #!/bin/bash
 
 # Get latest version of ReVanced tools
-#TOOLS=$(curl -s -X 'GET' 'https://releases.revanced.app/tools' -H 'accept: application/json')
-TOOLS=$(cat tools.json)
+TOOLS=$(curl -s -X 'GET' 'https://releases.revanced.app/tools' -H 'accept: application/json')
 
 TOOLS_NEEDED="revanced-cli revanced-patches revanced-integrations"
 
