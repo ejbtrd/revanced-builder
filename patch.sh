@@ -54,9 +54,12 @@ YOUTUBE_VERSION=$(cat patches.json | jq -r ".[] | select(.name==\"spoof-app-vers
 YOUTUBE_APK="com.google.android.youtube@$YOUTUBE_VERSION"
 ./apkkeep -a "$YOUTUBE_APK" .
 
+EXCLUDED_PATCHES=$(cat excluded-patches)
+
 # Finally patch the apk
 java -jar "$REVANCED_CLI" \
   -a "$YOUTUBE_APK".apk \
+  -e ${EXCLUDED_PATCHES[@]} \
   -b "$REVANCED_PATCHES" \
   -m "$REVANCED_INTEGRATIONS" \
   -o revanced_youtube_"$YOUTUBE_VERSION".apk
