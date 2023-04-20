@@ -49,6 +49,8 @@ fi
 # Get latest youtube version
 YOUTUBE_VERSION=$(cat patches.json | jq -r ".[] | select(.name==\"spoof-app-version\") | .compatiblePackages | .[] | .versions | .[-1]")
 
+echo "$YOUTUBE_VERSION" > yt-version
+
 # Download YouTube apk
 YOUTUBE_APK="com.google.android.youtube@$YOUTUBE_VERSION"
 ./apkkeep -a "$YOUTUBE_APK" .

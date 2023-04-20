@@ -12,6 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
+
+    - name: "Check YouTube version"
+      run: |
+        bash check_yt_version.sh
+
     - name: Run patch.sh
       run: |
         bash patch.sh
