@@ -1,0 +1,6 @@
+revanced-cache/
+*.jar
+*.keystore
+*.apk
+apkkeep
+options.toml
