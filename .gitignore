@@ -4,3 +4,4 @@ revanced-cache/
 *.apk
 apkkeep
 options.toml
+patches.json
