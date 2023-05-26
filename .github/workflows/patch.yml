@@ -33,7 +33,9 @@ jobs:
         commit_message: Update latest YouTube version
         file_pattern: yt-version
 
-    - uses: actions/upload-artifact@v2
-      with: 
-        name: YouTubeRevanced
-        path: revanced_youtube*.apk
+    - uses: marvinpinto/action-automatic-releases@latest
+      with:
+        repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        prerelease: false
+        files: revanced_youtube*.apk
+
